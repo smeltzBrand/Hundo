@@ -1,28 +1,46 @@
 
 //Step ONE - controller accept requests
-function getMessage(){
+function getValues(){
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
 
-    let msg = document.getElementById("txtMessage").value;
-
-    displayMessage(msg);
+    displayValues(startValue, endValue);
 
 }
 
 
 //Final Step - view
-function displayMessage(message) {
+function displayValues(start, end) {
     
     //first get the ol element from the page
     element = document.getElementById("results");
     
-    //next create a new li element
-    let item = document.createElement("li");
+for (let i = start; i <= end; i++) {
+    
+    //next create a new div element
+    let item = document.createElement("div");
+
+    if (i % 2 === 0) {
+        item.classList.add("boldItem");
+    } else {
+        
+    }
+
+
     //add classes to the li element
-    item.classList.add("list-group-item");
+       item.classList.add("col");
+    
     //set the message for the li element
-    item.innerHTML = message;
+    item.innerHTML = i;
 
     //add the new item to the list
     element.appendChild(item);
+}
+
+    
+ 
+   
+
+    
 
 }
