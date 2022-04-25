@@ -21,8 +21,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/site.css">
-    <link rel="stylesheet" href="/css/SiteCodeDisplay.css"
-
+    <link rel="stylesheet" href="/css/SiteCodeDisplay.css"> 
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -32,11 +31,11 @@
 
 <body class="d-flex flex-column h-100">
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top navColor">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index.html">
-                <img src="/img/BSWhiteMark.png" width="40" height="40" class="d-inline-block align-text-center me-1">APP
-                NAME
+                <img src="/img/BSWhiteMkTrpnt.png" width="40" height="40"
+                    class="d-inline-block align-text-center me-1">HUNDO
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,10 +53,10 @@
                         <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">The Repo</a>
+                        <a class="nav-link" href="https://github.com/smeltzBrand/Hundo" target="_blank">The Repo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="https://brandonsmeltzer.netlify.app/" target="_blank">About</a>
                     </li>
                 </ul>
             </div>
@@ -66,73 +65,85 @@
 
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            <h1>THE CODE For App Name</h1>
+            <h1>THE CODE For HUNDO</h1>
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
 
-                            //Step ONE - controller accept requests
-                            function getValues(){
-                                let startValue = document.getElementById("startValue").value;
-                                let endValue = document.getElementById("endValue").value;
                             
-                                displayValues(startValue, endValue);
-                            
-                            }
-                            
-                            
-                            //Final Step - view
-                            function displayValues(start, end) {
-                                
-                                //first get the ol element from the page
-                                element = document.getElementById("results");
-                                
-                            for (let i = start; i <= end; i++) {
-                                
-                                //next create a new div element
-                                let item = document.createElement("div");
-                            
-                                if (i % 2 === 0) {
-                                    item.classList.add("boldItem");
-                                } else {
-                                    
-                                }
-                            
-                            
-                                //add classes to the li element
-                                   item.classList.add("col");
-                                
-                                //set the message for the li element
-                                item.innerHTML = i;
-                            
-                                //add the new item to the list
-                                element.appendChild(item);
-                            }
-                            
-                            }
+//Step ONE - controller accept requests
+function getValues(){
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
+
+    // Check to see if user enter integers between 1 and 100
+    if (Number.isInteger(startValue) && Number.isInteger(endValue) && startValue >= 1 && startValue <= 100 && endValue >= 1 && endValue <= 100) {
+    
+
+    displayValues(startValue, endValue);
+    } else {
+        Swal.fire("Oops!","Please enter integers between 1 and 100.")
+    }
+
+}
+
+
+//Final Step - view
+function displayValues(start, end) {
+    
+    //first get the old element from the page
+    element = document.getElementById("results");
+    element.innerHTML = "";
+    
+for (let i = start; i <= end; i++) {
+    
+    //next create a new div element
+    let item = document.createElement("div");
+
+    if (i % 2 === 0) {
+        item.classList.add("boldItem");
+    } else {
+        
+    }
+
+
+    //add classes to the li element
+       item.classList.add("col");
+    
+    //set the message for the li element
+    item.innerHTML = i;
+
+    //add the new item to the list
+    element.appendChild(item);
+}
+
+}
                             
                         </code>
                     </pre>
                 </div>
                 <div class="col-12 col-lg-4">
                     <p>The code is structured in two functions</p>
-                    <h5>getValues</h5>
+                    <h5><code>getValues</code></h5>
                     <p>Gets values from the user</p>
-                    <h5>displayValues</h5>
+                    <h5><code>displayValues</code></h5>
                     <p>Displays the items on the page</p>
                 </div>
             </div>
         </div>
     </main>
-    <footer class="footer mt-auto py-3 bg-dark sticky-footer">
+    <footer class="footer mt-auto py-3 navColor sticky-footer">
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
                 <div class="col order-last order-lg-first">
                     <span>&copy; 2022</span> Brandon Smeltzer | brandon.m.smeltzer@gmail.com
                 </div>
                 <div class="col d-flex justify-content-start justify-content-lg-center">
-                    <img src="/img/BSWhiteMark.png" height="40">
+                    <img src="/img/BSWhiteMkTrpnt.png" height="40">
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">

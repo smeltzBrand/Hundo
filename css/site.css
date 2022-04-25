@@ -14,6 +14,10 @@ nav {
     background-color: var(--cf-dark-color);
 }
 
+.navColor {
+    background-color: rgb(58, 94, 59) !important;
+}
+
 main>.container {
     padding: 60px 15px 0;
     margin-bottom: 5rem;
